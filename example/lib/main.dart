@@ -100,7 +100,7 @@ class _MyHomePageState extends State<MyHomePage>
                       final result = await stream.firstWhere(
                           (event) => event.isResult || event.isFatalError);
                       if (result.isFatalError) return;
-                      displayResult(result as RenderResult);
+                      displayResult(result as RenderResult, true);
                     },
                     exampleAnimationController: functionController,
                     imageRenderCallback: () async {
@@ -142,7 +142,7 @@ class _MyHomePageState extends State<MyHomePage>
       );
     }
     if (saveToGallery) {
-      GallerySaver.saveImage(result.output.path)
+      GallerySaver.saveVideo(result.output.path)
           .then((value) => print("saved export to gallery"));
     }
   }
